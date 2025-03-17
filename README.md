@@ -1,4 +1,3 @@
-```markdown
 # Formula 1 Live Timings & Telemetry Web App
 
 Welcome to my Formula 1 Live Timings & Telemetry Web App! This is a personal project I built to explore my passion for motorsport and web development. It leverages real-time data from the OpenF1.org API to deliver live race timings, telemetry, and other exciting Formula 1 insights directly to your browser. I created this app using modern web technologies like Next.js, TypeScript, JavaScript, and Vercel, with a REST API integration to fetch and process the data.
@@ -104,10 +103,6 @@ This project is licensed under the MIT License. See the <LICENSE> file for detai
 
 -----
 
-Built with 🏎️ and ☕ by [Your Name]
-Check it out live at: [your-app-url.vercel.app](https://your-app-url.vercel.app)
-GitHub: [github.com/yourusername](https://github.com/yourusername)
-
-```
-
-```
+Built with 🏎️ and ☕ by Arush Mittal
+Check it out live at: [formula-times.com](https:formula-times)
+GitHub: [github.com/saltpioneer](https://github.com/saltpioneer)
