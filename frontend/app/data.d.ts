@@ -6,7 +6,7 @@ export type Driver = {
   team: string;
   countryCode: string;
   teamColor: number;
-  headshot: URL;
+  headshot: string;
   acronym: string;
 };
 
