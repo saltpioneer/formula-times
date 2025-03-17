@@ -1,0 +1,14 @@
+Lap Number
+Track Status (Safety Car, Red Flag, Blue Flag, etc.)
+Track Weather
+Track Location
+
+Table:
+0. Constructor Logo
+1. Driver Racer Position + Driver Lap
+2. Driver Headshot
+3. Driver Name, Country and Driver Number
+4. Driver Constructor + engine manufacturer
+5. Driver Interval + Gap to leader / Pit stop status
+6. Driver DNS Status
+7. Driver Speed
