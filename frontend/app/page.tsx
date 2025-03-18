@@ -1,5 +1,4 @@
 // app/page.tsx
-import "@radix-ui";
 
 import {
   Flex,
