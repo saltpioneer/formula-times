@@ -13,7 +13,7 @@ export default function RootLayout({
         <Theme
           accentColor="ruby"
           radius="small"
-          scaling="105%"
+          scaling="110%"
           appearance="dark"
         >
           <div className="background-overlay">{children}</div>

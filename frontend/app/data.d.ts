@@ -1,4 +1,3 @@
-import { URL } from "url";
 //test
 
 export type Driver = {
@@ -9,10 +8,4 @@ export type Driver = {
   teamColor: number;
   headshot: string;
   acronym: string;
-};
-
-export type Car = {
-  speed: number;
-  drs: number;
-  driver_number: number;
 };

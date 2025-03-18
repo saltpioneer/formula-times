@@ -1,4 +1,5 @@
 // app/page.tsx
+import type { NextApiRequest, NextApiResponse } from "next";
 
 import {
   Flex,
@@ -32,10 +33,10 @@ export default async function LiveScoreboard({}) {
           <Heading size="8">Welcome to Formula Times</Heading>
         </Box>
         <ScrollArea
-          size="1"
+          size="2"
           type="always"
           scrollbars="vertical"
-          style={{ height: 750 }}
+          style={{ height: "100%" }}
         >
           <text>
             The simple, and up-to-date live Formula 1 telemtrics, including
@@ -100,7 +101,7 @@ export default async function LiveScoreboard({}) {
                     Driver Speed
                     <Text size="1" color="gray" weight="light">
                       <br />
-                      in km/h
+                      km/h and mph
                     </Text>
                   </Table.ColumnHeaderCell>
                 </Table.Row>
@@ -115,17 +116,31 @@ export default async function LiveScoreboard({}) {
                       <Avatar src={driver.headshot} fallback="F1" />
                     </Table.Cell>
                     <Table.RowHeaderCell>
-                      {driver.fullName}
+                      <Text weight="medium">{driver.fullName}</Text>
                       <Text size="1" color="gray" weight="light">
                         <br />
                         {driver.countryCode || "unkown"} | {driver.number}
                       </Text>
                     </Table.RowHeaderCell>
-                    <Table.Cell>{driver.team}</Table.Cell>
                     <Table.Cell>
-                      <Badge color="orange">PIT</Badge>
+                      {driver.team}
+                      <Text size="1" color="gray" weight="light">
+                        <br />
+                        {driver.engine}
+                      </Text>
                     </Table.Cell>
-                    <Table.Cell>300kmph</Table.Cell>
+                    <Table.Cell>{driver.interval}s</Table.Cell>
+                    <Table.Cell>
+                      <Text weight="bold">{driver.speed || 0} </Text>
+                      km/h
+                      <Text size="1" color="gray" weight="light">
+                        <br />
+                        <Text weight="bold">
+                          {Math.round(driver.speed * 0.621371)}{" "}
+                        </Text>
+                        mph
+                      </Text>
+                    </Table.Cell>
                   </Table.Row>
                 ))}
               </Table.Body>
