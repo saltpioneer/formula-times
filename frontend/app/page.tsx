@@ -1,5 +1,6 @@
 // app/page.tsx
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Footer } from "@/app/footer";
 
 import {
   Flex,
@@ -9,14 +10,18 @@ import {
   Heading,
   Avatar,
   Callout,
+  Container,
   Badge,
   Progress,
+  Grid,
   ScrollArea,
 } from "@radix-ui/themes";
 import {
   CountdownTimerIcon,
   ExclamationTriangleIcon,
-  StarFilledIcon,
+  GitHubLogoIcon,
+  Half2Icon,
+  TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 
 import { getLiveDrivers } from "@/app/data";
@@ -25,48 +30,48 @@ export default async function LiveScoreboard({}) {
   // Replace '9158' with your actual session key
   const drivers = await getLiveDrivers();
   return (
-    <Flex gap="10" align="start">
-      {/* Left Column - Table */}
+    <Grid>
+      <Flex gap="10" align="start">
+        {/* Left Column - Table */}
 
-      <Box flexGrow="1">
-        <Box py="10px">
-          <Heading size="8">Welcome to Formula Times</Heading>
-        </Box>
-        <ScrollArea
-          size="2"
-          type="always"
-          scrollbars="vertical"
-          style={{ height: "100%" }}
-        >
-          <text>
+        <Box flexGrow="1">
+          <Box py="10px">
+            <Heading size="8">Welcome to Formula Times</Heading>
+          </Box>
+
+          <Text>
             The simple, and up-to-date live Formula 1 telemtrics, including
             telemetry data, live timing updates, and real-time race information.
-          </text>
-
-          <Box py="2" maxWidth="140px">
-            <Callout.Root variant="soft" color="yellow">
-              <Callout.Icon>
-                <ExclamationTriangleIcon />
-              </Callout.Icon>
-              <Callout.Text>Safety Car</Callout.Text>
-            </Callout.Root>
-          </Box>
-          <Box maxWidth="300px">
-            <Progress
-              value={25}
-              size="3"
-              variant="soft"
-              radius="full"
-              duration="30s"
-              color="red"
-            />
-            <Text>Race Progress</Text>
-          </Box>
+          </Text>
+          {/* <Box maxWidth="300px">
+          <Callout.Root color="gray" variant="soft" highContrast>
+            <Callout.Icon>
+              <Half2Icon />
+            </Callout.Icon>
+            <Callout.Text>
+              {" "}
+              Lap {drivers[0].lap}
+              <Text size="1" color="gray" weight="light">
+                <br />
+                race progress
+                <br />
+              </Text>
+              <Progress
+                value={25}
+                size="3"
+                variant="soft"
+                radius="full"
+                duration="370s"
+                color="red"
+              />
+            </Callout.Text>
+          </Callout.Root>
+        </Box> */}
           <Box py="15px">
             <Table.Root variant="surface" size="3">
               <Table.Header>
                 <Table.Row>
-                  <Table.ColumnHeaderCell width={"100px"} align="right">
+                  <Table.ColumnHeaderCell width={"10px"} align="right">
                     Position
                     <Text size="1" color="gray" weight="light">
                       <br />
@@ -94,10 +99,10 @@ export default async function LiveScoreboard({}) {
                     Interval
                     <Text size="1" color="gray" weight="light">
                       <br />
-                      gap to leader
+                      lap number
                     </Text>
                   </Table.ColumnHeaderCell>
-                  <Table.ColumnHeaderCell width={"100px"}>
+                  <Table.ColumnHeaderCell width={"120px"}>
                     Driver Speed
                     <Text size="1" color="gray" weight="light">
                       <br />
@@ -112,7 +117,7 @@ export default async function LiveScoreboard({}) {
                     <Table.Cell align="right">
                       <Heading size="4">{index + 1}</Heading>
                     </Table.Cell>
-                    <Table.Cell>
+                    <Table.Cell align="center">
                       <Avatar src={driver.headshot} fallback="F1" />
                     </Table.Cell>
                     <Table.RowHeaderCell>
@@ -129,7 +134,14 @@ export default async function LiveScoreboard({}) {
                         {driver.engine}
                       </Text>
                     </Table.Cell>
-                    <Table.Cell>{driver.interval}s</Table.Cell>
+                    <Table.Cell>
+                      +{driver.interval}s{" "}
+                      <Text size="1" color="gray" weight="light">
+                        <br />
+                        Lap {driver.lap}
+                      </Text>
+                    </Table.Cell>
+
                     <Table.Cell>
                       <Text weight="bold">{driver.speed || 0} </Text>
                       km/h
@@ -150,47 +162,50 @@ export default async function LiveScoreboard({}) {
               </Table.Body>
             </Table.Root>
           </Box>
-        </ScrollArea>
-      </Box>
-      {/* Right Column - Image */}
-      <Box width="400px" p="20px">
-        <Box py="10px">
-          <Heading as="h2">Melbourne Grand Prix</Heading>
         </Box>
-        <Flex direction="column" gap="3">
-          <img
-            src="/MelbourneTrack.jpg"
-            alt="Dashboard visual"
-            style={{
-              width: "auto",
-              height: "350px",
-              objectFit: "cover",
-              borderRadius: "6px",
-            }}
-          />
-
-          <Text>
-            This weekend's grand prix is held at the prestigious Albert Park, in
-            the heart of Melbourne, Australia.
-          </Text>
-          <Text size="2" color="gray">
-            Known for its iconic grandstands and stunning architecture, the
-            Albert Park Grand Prix Circuit is a must-visit destination for any
-            racing enthusiast. The track's unique layout and challenging corners
-            make it a favorite among drivers and spectators alike. With its
-            picturesque setting and thrilling races, Albert Park is a must-visit
-            destination for any racing enthusiast.
-          </Text>
-          <Box py="2" maxWidth="320px">
-            <Callout.Root>
-              <Callout.Icon>
-                <CountdownTimerIcon />
-              </Callout.Icon>
-              <Callout.Text>Chinese Grand Prix begins in 7 days.</Callout.Text>
-            </Callout.Root>
+        {/* Right Column - Image */}
+        <Box width="400px" p="20px">
+          <Box py="10px">
+            <Heading as="h2">Melbourne Grand Prix</Heading>
           </Box>
-        </Flex>
-      </Box>
-    </Flex>
+          <Flex direction="column" gap="3">
+            <img
+              src="/MelbourneTrack.jpg"
+              alt="Dashboard visual"
+              style={{
+                width: "auto",
+                height: "350px",
+                objectFit: "cover",
+                borderRadius: "6px",
+              }}
+            />
+
+            <Text>
+              This weekend's grand prix is held at the prestigious Albert Park,
+              in the heart of Melbourne, Australia.
+            </Text>
+            <Text size="2" color="gray">
+              Known for its iconic grandstands and stunning architecture, the
+              Albert Park Grand Prix Circuit is a must-visit destination for any
+              racing enthusiast. The track's unique layout and challenging
+              corners make it a favorite among drivers and spectators alike.
+              With its picturesque setting and thrilling races, Albert Park is a
+              must-visit destination for any racing enthusiast.
+            </Text>
+            <Box py="2" maxWidth="320px">
+              <Callout.Root>
+                <Callout.Icon>
+                  <CountdownTimerIcon />
+                </Callout.Icon>
+                <Callout.Text>
+                  Chinese Grand Prix begins in 5 days.
+                </Callout.Text>
+              </Callout.Root>
+            </Box>
+          </Flex>
+        </Box>
+      </Flex>
+      <Footer />
+    </Grid>
   );
 }
