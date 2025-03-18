@@ -10,5 +10,5 @@ Table:
 3. Driver Name, Country and Driver Number
 4. Driver Constructor + engine manufacturer
 5. Driver Interval + Gap to leader / Pit stop status
-6. Driver DNS Status
+6. Driver DRS Status
 7. Driver Speed
