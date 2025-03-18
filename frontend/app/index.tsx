@@ -8,7 +8,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const Home: NextPage = () => {
   // SWR polls the /api/liveDrivers endpoint every 5000ms (5 seconds)
   const { data, error } = useSWR<Driver[]>("/api/liveDrivers", fetcher, {
-    refreshInterval: 5000,
+    refreshInterval: 1000,
   });
 
   if (error) return <div>Error loading data.</div>;

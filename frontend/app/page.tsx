@@ -136,7 +136,11 @@ export default async function LiveScoreboard({}) {
                       <Text size="1" color="gray" weight="light">
                         <br />
                         <Text weight="bold">
-                          {Math.round(driver.speed * 0.621371)}{" "}
+                          {Math.round(
+                            typeof driver.speed === "number"
+                              ? driver.speed * 0.621371
+                              : 0,
+                          )}{" "}
                         </Text>
                         mph
                       </Text>
