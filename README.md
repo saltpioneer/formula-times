@@ -14,9 +14,9 @@ Welcome to my Formula 1 Live Timings & Telemetry Web App! This is a personal pro
 
 - **Frontend**: Next.js (React framework) for server-side rendering and an optimized UI.
 - **Languages**: TypeScript and JavaScript for type-safe, maintainable code.
-- **API**: OpenF1.org REST API for live Formula 1 data.
-- **Deployment**: Vercel for hosting and automatic scaling.
-- **Styling**: CSS modules for scoped, reusable styles.
+- **API**: [OpenF1.org](https://openf1.org) REST API for live Formula 1 data.
+- **Deployment**: [Vercel](http://vercel.com/) for hosting and automatic scaling.
+- **Styling**: [RadixUI Themes and Radix Primitives](https://www.radix-ui.com) and CSS modules for scoped, reusable styles.
 
 ## Getting Started
 
